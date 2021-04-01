@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 
 
 public class CustomArray {
-    private static final Logger log = LogManager.getLogger();
 
     private int[] array;
 
