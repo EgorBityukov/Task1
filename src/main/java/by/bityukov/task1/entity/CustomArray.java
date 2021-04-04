@@ -79,11 +79,4 @@ public class CustomArray {
         array = new int[size];
     }
 
-    public static void main(String[] args) {
-        CustomArray customArray = new CustomArray();
-        customArray.changeSize(5);
-        System.out.println(customArray.size());
-        customArray.clear();
-        System.out.println(customArray.size());
-    }
 }
