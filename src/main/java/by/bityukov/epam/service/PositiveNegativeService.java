@@ -26,8 +26,12 @@ public class PositiveNegativeService {
     }
 
     public CustomArray positiveElements(CustomArray array) throws ArrayException {
+        CustomArray positiveArray = null;
+        if (array.size() < 1) {
+            return positiveArray;
+        }
         int currentIndex = 0;
-        CustomArray positiveArray = new CustomArray(array.size());
+        positiveArray = new CustomArray(array.size());
         for (int i = 0; i < array.size(); i++) {
             if (array.getElement(i) >= 0) {
                 positiveArray.addElement(currentIndex, array.getElement(i));
@@ -38,8 +42,12 @@ public class PositiveNegativeService {
     }
 
     public CustomArray negativeElements(CustomArray array) throws ArrayException {
+        CustomArray negativeArray = null;
+        if (array.size() < 1) {
+            return negativeArray;
+        }
         int currentIndex = 0;
-        CustomArray negativeArray = new CustomArray(array.size());
+        negativeArray = new CustomArray(array.size());
         for (int i = 0; i < array.size(); i++) {
             if (array.getElement(i) < 0) {
                 negativeArray.addElement(currentIndex, array.getElement(i));

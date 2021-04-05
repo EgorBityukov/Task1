@@ -1,15 +1,16 @@
 package by.bityukov.epam.service;
 
 import by.bityukov.epam.entity.CustomArray;
+import by.bityukov.epam.exception.ArrayException;
 
 import java.util.stream.IntStream;
 
 public class AverageService {
 
-    public double averageValue(CustomArray array) throws Exception {
+    public double averageValue(CustomArray array) throws ArrayException {
 
-        if (array.size() < 1) {
-            throw new Exception();
+        if (array.size() == 0) {
+            return 0;
         }
         if (array.size() == 1) {
             return array.getElement(0);
@@ -26,9 +27,9 @@ public class AverageService {
         return average;
     }
 
-    public double streamAverageValue(CustomArray array) throws Exception {
-        if (array.size() < 1) {
-            throw new Exception();
+    public double streamAverageValue(CustomArray array) throws ArrayException {
+        if (array.size() == 0) {
+            return 0;
         }
         if (array.size() == 1) {
             return array.getElement(0);

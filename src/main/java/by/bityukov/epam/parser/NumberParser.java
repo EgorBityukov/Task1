@@ -1,6 +1,5 @@
 package by.bityukov.epam.parser;
 
-import by.bityukov.epam.validate.ArrayValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,8 +10,6 @@ public class NumberParser {
     public int[] parse(String line) {
         int[] numbers = new int[line.length()];
         int n = 0;
-
-        ArrayValidator validator = new ArrayValidator();
 
         for (String s : line.split(" - |, |,| ")) {
             try {

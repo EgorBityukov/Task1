@@ -7,17 +7,17 @@ import java.io.IOException;
 
 public class LineReader {
     public String readFile(String path) throws IOException {
-        String currentString;
+        String currentString = null;
 
-        BufferedReader reader = new BufferedReader(new java.io.FileReader(path));
         ArrayValidator validator = new ArrayValidator();
 
-        while ((currentString = reader.readLine()) != null) {
-            if (validator.isValid(currentString)) {
-                break;
+        try(BufferedReader reader = new BufferedReader(new java.io.FileReader(path))){
+            while ((currentString = reader.readLine()) != null) {
+                if (validator.isValid(currentString)) {
+                    break;
+                }
             }
         }
-
         return currentString;
     }
 }

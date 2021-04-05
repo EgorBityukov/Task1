@@ -1,16 +1,13 @@
 package by.bityukov.epam.service;
 
 import by.bityukov.epam.entity.CustomArray;
+import by.bityukov.epam.exception.ArrayException;
 
 import java.util.stream.IntStream;
 
 public class MinMaxService {
 
-    public int streamMax(CustomArray customArray) throws Exception {
-        if (customArray.size() < 1) {
-            throw new Exception();
-        }
-
+    public int streamMax(CustomArray customArray) throws ArrayException {
         int max = customArray.getElement(0);
 
         if (customArray.size() == 1) {
@@ -23,11 +20,7 @@ public class MinMaxService {
         return max;
     }
 
-    public int streamMin(CustomArray customArray) throws Exception {
-        if (customArray.size() < 1) {
-            throw new Exception();
-        }
-
+    public int streamMin(CustomArray customArray) throws ArrayException {
         int min = customArray.getElement(0);
 
         if (customArray.size() == 1) {
@@ -41,8 +34,8 @@ public class MinMaxService {
     }
 
     public int max(CustomArray customArray) throws Exception {
-        if (customArray.size() < 1) {
-            throw new Exception();
+        if (customArray.size() == 0) {
+            return 0;
         }
 
         int max = customArray.getElement(0);
@@ -56,18 +49,22 @@ public class MinMaxService {
                 max = customArray.getElement(i);
             }
         }
+
         return max;
     }
 
     public int min(CustomArray customArray) throws Exception {
-        if (customArray.size() < 1) {
-            throw new Exception();
-        }
-        if (customArray.size() == 1) {
-            return customArray.getElement(0);
+        if (customArray.size() == 0) {
+            return 0;
         }
 
         int min = customArray.getElement(0);
+
+        if (customArray.size() == 1) {
+            return min;
+        }
+
+
 
         for (int i = 1; i < customArray.size(); i++) {
             if (min > customArray.getElement(i)) {
