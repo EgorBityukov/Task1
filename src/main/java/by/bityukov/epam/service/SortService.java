@@ -1,10 +1,11 @@
-package by.bityukov.task1.service;
+package by.bityukov.epam.service;
 
-import by.bityukov.task1.entity.CustomArray;
+import by.bityukov.epam.entity.CustomArray;
+import by.bityukov.epam.exception.ArrayException;
 
 public class SortService {
 
-    public void bubbleSort(CustomArray array){
+    public void bubbleSort(CustomArray array) throws ArrayException {
         boolean sorted = false;
         int temp;
         while(!sorted) {
@@ -20,7 +21,7 @@ public class SortService {
         }
     }
 
-    public void insertionSort(CustomArray array) {
+    public void insertionSort(CustomArray array) throws ArrayException {
         for (int i = 1; i < array.size(); i++) {
             int current = array.getElement(i);
             int j = i - 1;
@@ -32,7 +33,7 @@ public class SortService {
         }
     }
 
-    public void selectionSort(CustomArray array) {
+    public void selectionSort(CustomArray array) throws ArrayException {
         for (int i = 0; i < array.size(); i++) {
             int min = array.getElement(i);
             int minId = i;

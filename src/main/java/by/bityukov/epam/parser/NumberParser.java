@@ -1,6 +1,6 @@
-package by.bityukov.task1.parser;
+package by.bityukov.epam.parser;
 
-import by.bityukov.task1.validate.ArrayValidator;
+import by.bityukov.epam.validate.ArrayValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

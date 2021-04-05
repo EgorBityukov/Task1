@@ -1,6 +1,6 @@
-package by.bityukov.task1.reader;
+package by.bityukov.epam.reader;
 
-import by.bityukov.task1.validate.ArrayValidator;
+import by.bityukov.epam.validate.ArrayValidator;
 
 import java.io.BufferedReader;
 import java.io.IOException;

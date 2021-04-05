@@ -1,6 +1,8 @@
-package by.bityukov.task1.service;
+package by.bityukov.epam.service;
 
-import by.bityukov.task1.entity.CustomArray;
+import by.bityukov.epam.entity.CustomArray;
+
+import java.util.stream.IntStream;
 
 public class AverageService {
 
@@ -21,6 +23,19 @@ public class AverageService {
         }
         average = sum / array.size();
 
+        return average;
+    }
+
+    public double streamAverageValue(CustomArray array) throws Exception {
+        if (array.size() < 1) {
+            throw new Exception();
+        }
+        if (array.size() == 1) {
+            return array.getElement(0);
+        }
+
+        double average;
+        average = IntStream.of(array.arrayCopy()).average().getAsDouble();
         return average;
     }
 }

@@ -1,4 +1,4 @@
-package by.bityukov.task1.exception;
+package by.bityukov.epam.exception;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +21,7 @@ public class ArrayException extends Exception{
     public ArrayException(String message, int number){
         super(message);
         this.number = number;
-        log.error(message);
+        log.error(message + "Number: " + number);
     }
 
     public int getNumber(){

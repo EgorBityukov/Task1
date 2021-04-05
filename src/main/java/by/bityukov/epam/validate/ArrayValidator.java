@@ -1,4 +1,4 @@
-package by.bityukov.task1.validate;
+package by.bityukov.epam.validate;
 
 import java.util.regex.Pattern;
 

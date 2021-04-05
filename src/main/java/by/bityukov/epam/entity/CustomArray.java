@@ -1,9 +1,7 @@
-package by.bityukov.task1.entity;
+package by.bityukov.epam.entity;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import by.bityukov.epam.exception.ArrayException;
 
 public class CustomArray {
 
@@ -13,23 +11,23 @@ public class CustomArray {
         array = new int[10];
     }
 
-    public CustomArray(int arraySize) {
+    public CustomArray(int arraySize) throws ArrayException {
         if (arraySize < 0) {
-            throw new IllegalArgumentException();
+            throw new ArrayException("Array size less then 0", arraySize);
         }
         array = new int[arraySize];
     }
 
-    public int getElement(int index) {
+    public int getElement(int index) throws ArrayException {
         if (index < 0 || index > array.length) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayException("Index out of range", index);
         }
         return array[index];
     }
 
-    public void addElement(int index, int element) {
+    public void addElement(int index, int element) throws ArrayException {
         if (index < 0 || index > array.length) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayException("Index out of range", index);
         }
         array[index] = element;
     }
@@ -39,9 +37,9 @@ public class CustomArray {
         return size;
     }
 
-    public void changeSize(int arraySize) {
+    public void changeSize(int arraySize) throws ArrayException {
         if (arraySize < 0) {
-            throw new IllegalArgumentException();
+            throw new ArrayException("Incorrect size", arraySize);
         }
 
         int[] arrayBuffer = new int[arraySize];
@@ -59,6 +57,14 @@ public class CustomArray {
         }
     }
 
+    public int[] arrayCopy() {
+        int[] arrayCopy = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            arrayCopy[i] = array[i];
+        }
+        return arrayCopy;
+    }
+
     public void remove(int element) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == element) {
@@ -67,9 +73,9 @@ public class CustomArray {
         }
     }
 
-    public void removeAt(int index) {
+    public void removeAt(int index) throws ArrayException {
         if (index < 0 || index > array.length) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayException("Index out of range", index);
         }
         array[index] = 0;
     }
