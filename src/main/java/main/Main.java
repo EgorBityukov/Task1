@@ -1,4 +1,4 @@
-package by.bityukov.epam.main;
+package main;
 
 import by.bityukov.epam.creator.CustomArrayCreator;
 import by.bityukov.epam.entity.CustomArray;
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Main {
     public static Logger log = LogManager.getLogger();
 
-    public static void main(String[] args) throws IOException, ArrayException {
+    public static void main(String[] args) throws ArrayException {
         CustomArray customArray = null;
         String stringFromFile = null;
         int[] numbers;
@@ -24,7 +24,7 @@ public class Main {
         CustomArrayCreator customArrayCreator = new CustomArrayCreator();
 
         try {
-            stringFromFile = lineReader.readFile("C:\\Users\\Lenovo\\Desktop\\1.txt");
+            stringFromFile = lineReader.readFile("src\\main\\resources\\1.txt");
         } catch (IOException e) {
             log.error(e.getMessage());
         }
@@ -32,16 +32,12 @@ public class Main {
         numbers = numberParser.parse(stringFromFile);
         customArray = customArrayCreator.create(numbers);
 
-        for (int i = 0; i < customArray.size(); i++) {
-            System.out.print(customArray.getElement(i));
-        }
+        log.info("Before sort: " + customArray.toString());
 
         SortService service = new SortService();
         service.bubbleSort(customArray);
 
-        System.out.println("After sort: ");
-        for (int i = 0; i < customArray.size(); i++) {
-            System.out.print(customArray.getElement(i));
-        }
+        log.info("After sort: " + customArray.toString());
+
     }
 }

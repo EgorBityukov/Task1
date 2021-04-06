@@ -3,6 +3,8 @@ package by.bityukov.epam.entity;
 
 import by.bityukov.epam.exception.ArrayException;
 
+import java.util.Arrays;
+
 public class CustomArray {
 
     private int[] array;
@@ -85,4 +87,10 @@ public class CustomArray {
         array = new int[size];
     }
 
+    @Override
+    public String toString() {
+        String stringArray;
+        stringArray = Arrays.toString(array);
+        return stringArray;
+    }
 }
